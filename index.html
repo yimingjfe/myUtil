@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="./util.js"></script>
+	<script>
+		let { extend } = util;
+
+		let o1 = {},
+				o2 = {
+					name: 'fdf',
+					gender: 'nv'
+				},
+				o3 = {
+					lazy: true
+				};
+		extend(o1, o2, o3);
+	</script>
+</body>
+</html>
