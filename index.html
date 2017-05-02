@@ -5,19 +5,26 @@
 	<title>Document</title>
 </head>
 <body>
+<!-- <script src="http://cdn.bootcss.com/lodash.js/4.17.4/lodash.js"></script> -->
+<script src="./lodash.js"></script>
 	<script src="./util.js"></script>
 	<script>
 		let { extend } = util;
 
-		let o1 = {},
-				o2 = {
-					name: 'fdf',
-					gender: 'nv'
-				},
-				o3 = {
-					lazy: true
-				};
-		extend(o1, o2, o3);
+		let o1 = {
+			a: {
+				name: 'fdfsa'
+			},
+			b: 2
+		}
+
+		let o2 = {
+			c: {
+				vv: 'ff'
+			}
+		}
+		_.assign(o2, o1);
+		
 	</script>
 </body>
 </html>
