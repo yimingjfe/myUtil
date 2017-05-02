@@ -23,7 +23,11 @@
 				vv: 'ff'
 			}
 		}
-		_.assign(o2, o1);
+		// _.assign(o2, o1);
+		
+		extend(true, o2, o1);
+		o2['a'].name = 'fwfed';
+		console.log(o1['a']);
 		
 	</script>
 </body>

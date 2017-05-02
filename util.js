@@ -1,7 +1,7 @@
 var util = (function(){
 
 	let class2type = {};
-	
+
 	('Boolean Number String Function Array Date RegExp Object Error Symbol')
 		.split(' ')
 		.forEach( key => {
@@ -45,7 +45,7 @@ var util = (function(){
 			target = this;
 			i--;
 		}
-	
+	// debugger;
 		for( ; i < length; i++){
 			if((options = arguments[i]) != null){
 	
@@ -60,10 +60,11 @@ var util = (function(){
 	
 					if(deep && copy && ( isPlainObject(copy) || 
 						( copyIsArray = Array.isArray(copy)) ) ){
-
+// debugger;
 						if(copyIsArray){
 							src = src && Array.isArray(src) ? src : [];
 						} else {
+							
 							src = src && isPlainObject(src) ? src : {};
 						}
 
