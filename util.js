@@ -1,10 +1,26 @@
 var util = (function(){
+
+	let class2type = {};
+	
+	('Boolean Number String Function Array Date RegExp Object Error Symbol')
+		.split(' ')
+		.forEach( key => {
+			class2type[ "[object " + key + "]" ] = key.toLowerCase();
+		})
+
+	
+	const hasOwn = function(class2type){
+		return class2type.hasOwnProperty;
+	};
+
 	const isPlainObject = function(obj){
 		if(!obj || Object.prototype.toString(obj) !== "[object Object]"){
 			return false;
 		}
 		let proto = Object.getPrototypeOf(obj);
-		let constructor = proto.hasOwnProperty(proto.constructor) && proto.constructor;
+		//jQuery源码，不明白为什么这么麻烦
+		//Ctor = hasOwn.call( proto, "constructor" ) && proto.constructor;
+		let constructor = proto.hasOwnProperty('constructor') && proto.constructor;
 		return typeof constructor === "function" && constructor.toString() === Object.toString();
 	};
 
