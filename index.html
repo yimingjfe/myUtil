@@ -6,8 +6,9 @@
 </head>
 <body>
 <!-- <script src="http://cdn.bootcss.com/lodash.js/4.17.4/lodash.js"></script> -->
+
 <script src="./lodash.js"></script>
-	<script src="./util.js"></script>
+<script src="./util.js"></script>
 	<script>
 		let { extend } = util;
 
@@ -20,15 +21,21 @@
 
 		let o2 = {
 			c: {
+				name: 'bbbb',
 				vv: 'ff'
 			}
 		}
-		// _.assign(o2, o1);
-		
-		extend(true, o2, o1);
-		o2['a'].name = 'fwfed';
-		console.log(o1['a']);
-		
+
+		var users = [
+  { 'user': 'barney',  'age': 36, 'active': true },
+  { 'user': 'fred',    'age': 40, 'active': false },
+  { 'user': 'pebbles', 'age': 1,  'active': true }
+];
+
+var obj = _.find(users, function(o) { return o.age < 40; });
+console.log(obj);
+console.log(obj === users[0]);
+
 	</script>
 </body>
 </html>

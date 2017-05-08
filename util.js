@@ -45,7 +45,7 @@ var util = (function(){
 			target = this;
 			i--;
 		}
-	// debugger;
+
 		for( ; i < length; i++){
 			if((options = arguments[i]) != null){
 	
@@ -60,7 +60,7 @@ var util = (function(){
 	
 					if(deep && copy && ( isPlainObject(copy) || 
 						( copyIsArray = Array.isArray(copy)) ) ){
-// debugger;
+
 						if(copyIsArray){
 							src = src && Array.isArray(src) ? src : [];
 						} else {
