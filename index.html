@@ -3,38 +3,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		.grid-demo{
+			display: grid;
+			grid-template-columns: 1fr 2fr 1fr;
+			height: 500px;
+			grid-gap: 5px;
+		}
+		.grid-demo .itm{
+			background: lightsalmon;
+		}
+		.grid-demo .first{
+			grid-column: 1 / 4;
+		}
+	</style>
 </head>
 <body>
+	<div class="grid-demo">
+		<div class="itm first"></div>
+		<div class="itm"></div>
+		<div class="itm"></div>
+		<div class="itm"></div>
+	</div>
+
+
 <!-- <script src="http://cdn.bootcss.com/lodash.js/4.17.4/lodash.js"></script> -->
 
 <script src="./lodash.js"></script>
 <script src="./util.js"></script>
 	<script>
-		let { extend } = util;
 
-		let o1 = {
-			a: {
-				name: 'fdfsa'
-			},
-			b: 2
-		}
 
-		let o2 = {
-			c: {
-				name: 'bbbb',
-				vv: 'ff'
-			}
-		}
 
-		var users = [
-  { 'user': 'barney',  'age': 36, 'active': true },
-  { 'user': 'fred',    'age': 40, 'active': false },
-  { 'user': 'pebbles', 'age': 1,  'active': true }
-];
-
-var obj = _.find(users, function(o) { return o.age < 40; });
-console.log(obj);
-console.log(obj === users[0]);
 
 	</script>
 </body>
