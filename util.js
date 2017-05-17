@@ -129,6 +129,12 @@ util.extend(util, {
     }
 	},
 
+	delay(time){
+		return new Promise( (resolve, reject) => {
+			setTimeout(resolve, time);
+		})
+	},
+
 	emitter: {
 		on(event, fn){
 			var handlers = this._handlers ||　(this._handlers = {}),
