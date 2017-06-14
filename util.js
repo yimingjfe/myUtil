@@ -169,6 +169,9 @@ util.extend(util, {
 			calls.forEach(fn => fn.apply(this, data));
 			return this;
 		}
+	},
+	ramda: {
+		
 	}						
 })
 
