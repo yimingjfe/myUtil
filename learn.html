@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.24.1/ramda.min.js"></script>
+
+<script>
+//  module.exports = function pipe() {
+//    if (arguments.length === 0) {
+//      throw new Error('pipe requires at least one argument');
+//    }
+//    return _arity(arguments[0].length,
+//      reduce(_pipe, arguments[0], tail(arguments)));
+//  };
+
+  function pipe(...fns){
+    return function(args){
+      let tailFns = fns.slice(1)
+      tailFns.reduce(_pipe, fns[0])
+    }
+  }
+
+
+  function _pipe(f, g){
+    debugger;
+    return (...args) => {
+      return g.call(this, f.apply(this, args))
+    }
+  }
+
+  function add(a, b){
+    return a + b
+  }
+
+  function mul(a, b){
+    return a * b;
+  }
+
+  function add1(a){
+    return a + 1
+  }
+
+  function mul2(b){
+    return b * 2
+  }
+
+  const ff = pipe(add1, mul2)
+  console.log(ff(4))
+</script>
+</body>
+</html>

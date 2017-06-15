@@ -171,7 +171,33 @@ util.extend(util, {
 		}
 	},
 	ramda: {
-		
+		//针对函数只有一个参数的情况
+    //返回函数本身，或直接执行
+		_curry1(fn){
+			return function f1(...args) {
+				if(args.length === 0){
+					return f1
+				} else {
+					return f1.apply(this, args)
+				}
+			}
+		},
+
+		_curry2(fn){
+			return (...args) => {
+        switch(args.length){
+          case 0:
+            return f2;
+          case 1:
+            //这个时候args1不只是一个参数，怎么办
+            return function(b){
+              return _curry1(() => fn(args, b))
+            }
+          case 2:
+            return f2(args)
+        }
+			}
+		}
 	}						
 })
 
