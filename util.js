@@ -109,6 +109,23 @@ util.extend(util, {
 			node.classList.add(className);
 		}
 	},
+	// animate(animateElem, 'opacity', 1, 0, 500)
+	animate(elem, property, from, to, duration, callback){
+		// requestAnimationFrame
+		const dis = to - from
+		const stepsNum = duration / 1000 * 60
+		const stepDis = dis / stepsNum
+		let lastValue = from
+		function stepAnimate(){
+			lastValue = elem.style[property] = lastValue + stepDis
+			if((dis > 0 && lastValue < to) || (dis < 0 && lastValue > to)) {
+				requestAnimationFrame(stepAnimate)
+			} else {
+				callback && callback()
+			}
+		}
+		requestAnimationFrame(stepAnimate)
+	}
 
 	JSONParse: function(content){
 		try{
